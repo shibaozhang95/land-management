@@ -1,0 +1,57 @@
+<div *ngIf="currentProperty&&currentProperty._id" class="properties-edit-container">
+  <mat-card class="property-edit-block">
+    <mat-card-title>Modify information for one property</mat-card-title>
+    <mat-card-content>
+      <form class="edit-property-form" (ngSubmit)="modifyProperty($event)">
+        <mat-list>
+          <mat-list-item>
+            <mat-icon class="mat-22 edit-property-line-icon">list_alt</mat-icon>
+            <mat-form-field class="edit-property-form-line">
+              <input matInput type="text" name="propertyId" placeholder="Plot ID" [(ngModel)]="currentProperty.plot_id" />
+            </mat-form-field>
+          </mat-list-item>
+          <mat-list-item>
+            <mat-icon class="mat-22 edit-property-line-icon">location_on</mat-icon>
+            <mat-form-field class="edit-property-form-line">
+              <input type="text" matInput placeholder="Address" name="propertyAddress" [(ngModel)]="currentProperty.address">
+            </mat-form-field>
+          </mat-list-item>
+
+          <mat-list-item>
+            <mat-icon class="mat-22 edit-property-line-icon">edit_location</mat-icon>
+            <mat-form-field class="edit-property-form-line">
+              <input class="address-input" matInput type="text" placeholder="Coodinates Set" name="propertyCoordinatesStr" [(ngModel)]="currentProperty.coordinatesStr"/>
+              <mat-hint align="end">(lat1,lng2;lat2,lng2;lat3,lng3...)</mat-hint>
+            </mat-form-field>
+          </mat-list-item>
+
+          <mat-list-item>
+            <mat-icon class="mat-22 edit-property-line-icon">flag</mat-icon>
+            <mat-form-field class="edit-property-form-line">
+              <mat-select placeholder="Agreement type" name="propertyType" [(ngModel)]="currentProperty.agreement_type">
+                <mat-option value="1">Areas where native title does not exist</mat-option>
+                <mat-option value="2">Areas to which sections 47A and 48A NTA apply</mat-option>
+                <mat-option value="3">Areas the subject of non-exclusive native title</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </mat-list-item>
+
+          <mat-list-item>
+            <mat-icon class="mat-22 edit-property-line-icon">person</mat-icon>
+            <mat-form-field class="edit-property-form-line" disabled>
+              <input matInput type="text" placeholder="Owner/Group" name="propertyOwner" [(ngModel)]="currentProperty.owner"/>
+            </mat-form-field>
+          </mat-list-item>
+
+          <mat-list-item>
+            <div class="edit-property-form-line">
+              <button class="edit-property-btn" mat-raised-button type="button" (click)="turnOffEditing()">Cancel</button>
+              <button class="edit-property-btn" mat-raised-button type="submit" color="primary">Modify</button>
+              <button class="edit-property-btn" mat-raised-button type="button" (click)="deleteProperty()" color="accent">Delete</button>
+            </div>
+          </mat-list-item>
+        </mat-list>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

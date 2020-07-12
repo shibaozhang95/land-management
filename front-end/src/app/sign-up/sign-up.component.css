@@ -1,0 +1,40 @@
+.signup-container {
+  width: 460px;
+  margin: 150px auto;
+}
+
+.signup-form-line {
+  width: 100%;
+  /* display: flex; */
+}
+
+mat-list-item {
+  margin: 20px 0;
+  padding: 0 20px;
+}
+mat-card-title {
+  /* background-color: red;
+  color: #fff; */
+  text-align: center;
+}
+.signup-form-line button {
+  float: right;
+  /* margin-right: 50px; */
+}
+.add-admin-line-icon {
+  width: 35px;
+  height: 35px;
+  font-size: 30px !important;
+  margin: 0 15px 0 0;
+}
+
+.signup-other-action {
+  padding: 0 24px;
+}
+
+mat-radio-group {
+  margin: 0 5px;
+}
+mat-radio-button {
+  margin-right: 15px
+}

@@ -1,0 +1,46 @@
+<div class="properties-list-container">
+
+  <app-properties-edit
+    [currentProperty]="currentProperty"
+    (deletePropEmit)="deleteProperty($event)"
+    (modifiedPropEmit)="modifiedProperty($event)">
+  </app-properties-edit>
+  
+  <mat-card class="properties-list-block">
+    <mat-card-title>Land usage information list</mat-card-title>
+    <mat-card-content>
+      <mat-form-field style="float:right">
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+      </mat-form-field>
+      <table mat-table [dataSource]="datasourceProperty">
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> <strong>Plot id.</strong> </th>
+          <td mat-cell *matCellDef="let element"> {{element.plot_id}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="address">
+          <th mat-header-cell *matHeaderCellDef> <strong>Address</strong> </th>
+          <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+        </ng-container>
+        
+        <ng-container matColumnDef="type">
+          <th mat-header-cell *matHeaderCellDef> <strong>Type</strong> </th>
+          <td mat-cell *matCellDef="let element"> {{element.agreement_type}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="edit">
+          <th mat-header-cell *matHeaderCellDef> <strong>Edit</strong>  </th>
+          <td mat-cell *matCellDef="let element"> 
+            <button mat-icon-button (click) = "editProperty(element)">
+              <mat-icon>border_color</mat-icon>
+            </button> 
+          </td>
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumnsProperty"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumnsProperty;"></tr>
+      </table>
+      <mat-paginator length ="propertyList.length" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </mat-card-content>
+  </mat-card>
+</div>

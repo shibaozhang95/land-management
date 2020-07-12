@@ -1,0 +1,36 @@
+<div class="login-container">
+  <mat-card class="login-block">
+    <mat-card-title>Login</mat-card-title>
+    <form [formGroup]="loginFormControl" (ngSubmit)="login()">
+      <mat-list>
+        <mat-list-item>
+          <mat-icon class="mat-22 add-admin-line-icon">face</mat-icon>
+          <mat-form-field class="login-form-line">
+            <input matInput type="text" name="username_" placeholder="Username" formControlName="form_username" />
+            <mat-error *ngIf="form_username.invalid">username is
+              <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </mat-list-item>
+        <mat-list-item>
+          <mat-icon class="mat-22 add-admin-line-icon">lock_open</mat-icon>
+          <mat-form-field class="login-form-line">
+            <input matInput type="password" name="password_" placeholder="Password" formControlName="form_password" />
+            <mat-error *ngIf="form_password.invalid">
+              password is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </mat-list-item>
+        <mat-list-item>
+          <div class="login-form-line">
+            <button class="add-admin-btn" mat-raised-button color="primary" type="submit" [disabled]="!loginFormControl.valid">Login</button>
+          </div>
+        </mat-list-item>
+      </mat-list>
+    </form>
+    <div class="login-other-action">
+      <button (click)="goToRegister()" mat-button>Register</button>
+      <button (click)="goToMap()" mat-button>Go as Visitor</button>
+    </div>
+  </mat-card>
+</div>

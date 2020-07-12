@@ -1,0 +1,57 @@
+<button class="help-btn" mat-fab color="accent" matTooltip="Click for help" matTooltipPosition="before" (click)="turnOnInstructions()">
+  <mat-icon>help_outline</mat-icon>
+</button>
+
+<div *ngIf="ifShowInstructions" class="help-container">
+
+  
+
+  <div class="swiper-container" [swiper]="configForSwiper" [(index)]="index">
+
+    <button class="help-cancel-btn" (click)="turnOffInstructions()" mat-icon-button>
+      <mat-icon color="primary">cancel</mat-icon>
+    </button>
+    
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <div class="slide-content">
+          <mat-toolbar>
+            <span>Search instruction</span>
+          </mat-toolbar>
+          <img src="../../assets/statics/Search.png" class="ins-img">
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="slide-content">
+          <mat-toolbar>
+            <span>Help instruction</span>
+          </mat-toolbar>
+          <img src="../../assets/statics/help.png" class="ins-img">
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="slide-content">
+          <mat-toolbar>
+            <span>User instruction</span>
+          </mat-toolbar>
+          <img src="../../assets/statics/user.png" class="ins-img">
+        </div>
+      </div>
+      <div class="swiper-slide">
+        <div class="slide-content">
+          <mat-toolbar>
+            <span>Map instruction</span>
+          </mat-toolbar>
+          <img src="../../assets/statics/maps.png" class="ins-img">
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="swiper-scrollbar"></div> -->
+    <div class="swiper-pagination"></div>
+
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+
+</div>

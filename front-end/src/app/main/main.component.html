@@ -1,0 +1,12 @@
+<!-- <app-search-box *ngIf="true"></app-search-box> -->
+<app-side-bar class="app-side-bar"
+  [@sideBarA]="state$"
+  (toggleSideBar)="toggleSideBar($event)"
+  [currentProperty]="currentProperty">
+</app-side-bar>
+
+<app-search-box *ngIf="true" (showDetail)="triggerOnDetail($event)"></app-search-box>
+<app-maps (showDetail)="triggerOnDetail($event)"></app-maps>
+
+<app-legend></app-legend>
+<app-help></app-help>

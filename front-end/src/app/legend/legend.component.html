@@ -1,0 +1,21 @@
+<div class="legend-container">
+  <button class="legend-btn" mat-fab color="primary"
+    (mouseenter)="turnOnLegend()" (mouseleave)="turnOffLegend()">Legend</button>
+  <div *ngIf="ifShowLegend" class="legend-content">
+    <div class="arrow-right"></div>
+    <mat-list>
+      <mat-list-item>
+        <div class="color-span color-span-1"></div>
+        <div class="content-span">Areas where native title does not exist</div>
+      </mat-list-item>
+      <mat-list-item>
+        <div class="color-span color-span-2"></div>
+        <div class="content-span">Areas to which sections 47A and 48A NTA apply</div>
+      </mat-list-item>
+      <mat-list-item>
+        <div class="color-span color-span-3"></div>
+        <div class="content-span">Areas the subject of non-exclusive native title</div>
+      </mat-list-item>
+    </mat-list>
+  </div>
+</div>

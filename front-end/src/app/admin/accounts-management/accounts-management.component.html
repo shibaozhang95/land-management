@@ -1,0 +1,45 @@
+<div class="accounts-list-container">
+
+  <app-account-edit
+    [currentUser]="currentUser"
+    (deleteUserEmit)="deleteUser($event)"
+    (modifiedUserEmit)="modifiedUser($event)">
+  </app-account-edit>
+
+  <mat-card class="accounts-list-block">
+    <mat-card-title>Administrator accounts list</mat-card-title>
+    <mat-card-content>
+      <table mat-table [dataSource]="datasourceAdmin">
+        <ng-container matColumnDef="username">
+          <th mat-header-cell *matHeaderCellDef> <strong>Username</strong> </th>
+          <td mat-cell *matCellDef="let element"> {{element.username}} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="user_type">
+          <th mat-header-cell *matHeaderCellDef> <strong>User type</strong> </th>
+          <td mat-cell *matCellDef="let element"> {{element.user_type == 0 ? 'Admin' : 'User' }} </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="edit">
+          <th mat-header-cell *matHeaderCellDef> <strong>Edit</strong>  </th>
+          <td mat-cell *matCellDef="let element; let i = index"> 
+            <button mat-icon-button (click) = "editAdmin(element)">
+              <mat-icon>border_color</mat-icon>
+            </button> 
+          </td>
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumnsAdmin"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumnsAdmin;"></tr>
+      </table>
+      <mat-paginator length ="adminList.length" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+
+
+
+
+
+

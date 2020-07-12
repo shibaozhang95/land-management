@@ -1,0 +1,57 @@
+<div class="account-edit-container" *ngIf="currentUser&&currentUser._id">
+  <mat-card class="account-edit-block">
+    <mat-card-title>Modify information for adiministrator account</mat-card-title>
+    <mat-card-content>
+      <form class="edit-admin-form">
+        <mat-list>
+
+          <mat-list-item>
+            <mat-icon class="mat-22 edit-admin-line-icon">face</mat-icon>
+            <mat-form-field class="edit-admin-form-line">
+              <input matInput class="edit-admin-line-input" type="text" name="adminUsername" placeholder="Username"
+                [(ngModel)]="currentUser.username" disabled/>
+            </mat-form-field>
+            
+          </mat-list-item>
+
+          <mat-divider></mat-divider>
+          <mat-list-item>
+              <!-- <mat-divider></mat-divider> -->
+            <h2 mat-subheader>Change password</h2>
+          </mat-list-item>
+
+          <mat-list-item>
+            <mat-icon class="mat-22 edit-admin-line-icon">lock_open</mat-icon>
+            <mat-form-field class="edit-admin-form-line">
+              <input matInput type="password" placeholder="Password" name="adminPassword" 
+                [(ngModel)]="password"/>
+              <!-- <mat-error *ngIf="password.invalid">Password is <strong>required</strong></mat-error> -->
+            </mat-form-field>
+          </mat-list-item>
+
+          <mat-list-item>
+            <mat-icon class="mat-22 edit-admin-line-icon">lock</mat-icon>
+            <mat-form-field class="edit-admin-form-line">
+              <input matInput type="password" placeholder="Confirm password" name="adminConfirmPassword"
+              [(ngModel)]="confirmedPassword"/>
+              <!-- <mat-error *ngIf="confirmPassword.invalid">Password <strong>doesn't match</strong></mat-error> -->
+            </mat-form-field>
+          </mat-list-item>
+
+          <mat-list-item>
+            <div class="edit-admin-form-line">
+              <!-- <button class="add-admin-btn" mat-raised-button color="accent" (click)="addUser()">Reset</button> -->
+              <button class="edit-admin-btn" mat-raised-button type="button" 
+                (click)="turnOffEditing()">Cancel</button>
+              <button class="edit-admin-btn" mat-raised-button color="primary" type="button" 
+                (click)="changePassword()">Modify</button>
+              <button class="edit-admin-btn" mat-raised-button color="accent" type="button" 
+                (click)="deleteAccount()">Delete</button>
+              
+            </div>
+          </mat-list-item>
+        </mat-list>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,0 +1,103 @@
+mat-tab-group {
+  width: 100%;
+}
+
+mat-tab {
+  min-width: 50%;
+}
+
+.homepage-block {
+  padding: 25px 15px;
+}
+
+mat-expansion-panel-header mat-icon {
+  margin-right: 8px;
+  color: rgba(0, 0, 0, 0.5);
+}
+mat-expansion-panel-header span {
+  line-height: 24px;
+}
+.pro-title {
+  margin: 0 10px;
+  font-weight: bold;
+  width: 25%;
+}
+
+.property-detail-block {
+  padding: 25px 15px;
+  overflow: hidden;
+}
+
+mat-card {
+  padding: 0 0 20px 0;
+}
+
+mat-card-title {
+  background:rgba(0,0,0,.03);
+  color: rgba(0,0,0,.54);
+  overflow: hidden;
+}
+
+h5 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+mat-card-actions {
+  /* overflow: hidden; */
+  max-width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.like-button {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.one-record {
+  height: 80px !important;
+  width: 100%;
+  /* padding: 20px 0; */
+  /* overflow: hidden; */
+}
+/* .one-record-block {
+  display: block;
+  width: 100%;
+  padding: 20px 0;
+  overflow: hidden;
+} */
+
+.one-record-block {
+  padding: 20px 0;
+}
+
+/* .one-record-id */
+.one-record-id,
+.one-record-address {
+  /* margin: 10px 0; */
+  width: 300px;
+  min-height: 30px;
+  line-height: 30px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  position: relative;
+}
+
+.one-record-id .delete-icon {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 30px;
+  height: 30px;
+  font-size: 16px !important;
+}
+
+.one-record-id .mat-14 {
+  margin-top: -15px;
+  font-size: 16px !important
+}

@@ -1,0 +1,112 @@
+<mat-tab-group mat-stretch-tabs [selectedIndex]="propertyService.functionIndex"
+  (selectedTabChange)="switchFunctionTab($event)">
+  <mat-tab label="Homepage">
+    <div class="homepage-block">
+      <mat-accordion displayMode="default" [multi]="true"
+                     [hideToggle]="false">
+        <mat-expansion-panel [hideToggle]="false">
+          <mat-expansion-panel-header>
+            <mat-icon class="mat-16">favorite</mat-icon>
+            <span>Favorite</span>
+          </mat-expansion-panel-header>
+          <!-- This is intentially for <strong>Favorite records</strong> -->
+          <span *ngIf="!userService.currentUser">Please <strong><a routerLink="/login">login</a></strong> to use those functionalities</span>
+          <span *ngIf="userService.currentUser&&propertyService.favouriteList.length==0">Add some new favourite records!</span>
+          
+          <mat-nav-list *ngIf="propertyService.favouriteList.length!=0">
+            <a (click)="goToNativeTitle(item)" mat-list-item class="one-record" *ngFor="let item of propertyService.favouriteList">
+              <div class="one-record-block">
+                <div class="one-record-id">
+                  <strong>{{item.plot_id + '  ' + item.owner}}</strong>
+                  <button class="delete-icon" (click)="deleteOneFavourite($event, item.plot_id)" mat-icon-button>
+                    <mat-icon class="mat-14">delete</mat-icon>
+                  </button>
+                </div>
+                <div class="one-record-address">{{item.address}}</div>
+              </div>
+            </a>
+          </mat-nav-list>
+
+          <mat-action-row *ngIf="propertyService.favouriteList.length!=0">
+            <button mat-button color="primary" (click)="clearAllFavourite()">Clear all</button>
+          </mat-action-row>
+
+        </mat-expansion-panel>
+        <mat-expansion-panel [hideToggle]="false">
+          <mat-expansion-panel-header>
+            <mat-icon class="mat-16">history</mat-icon>
+            <span>History</span>
+          </mat-expansion-panel-header>
+          <!-- This is intentially for <strong>History records</strong> -->
+          <span *ngIf="!userService.currentUser">Please <strong><a routerLink="/login">login</a></strong> to use those functionalities</span>
+          <span *ngIf="userService.currentUser&&propertyService.historyList.length==0">Add some new history records!</span>
+          
+          <mat-nav-list *ngIf="propertyService.historyList.length!=0">
+            <a (click)="goToNativeTitle(item)" mat-list-item class="one-record" *ngFor="let item of propertyService.historyList">
+              <div class="one-record-block">
+                <div class="one-record-id">
+                  <strong>{{item.plot_id + '  ' + item.owner}}</strong>
+                  <button class="delete-icon" (click)="deleteOneHistory($event, item.plot_id)" mat-icon-button>
+                    <mat-icon class="mat-14">delete</mat-icon>
+                  </button>
+                </div>
+                <div class="one-record-address">{{item.address}}</div>
+              </div>
+            </a>
+          </mat-nav-list>
+
+          <mat-action-row *ngIf="propertyService.historyList.length!=0">
+            <button mat-button color="primary" (click)="clearAllHistory()">Clear all</button>
+          </mat-action-row>
+
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </mat-tab>
+  <mat-tab label="Property Detail">
+    <div class="property-detail-block" >
+      <mat-card class="" *ngIf="propertyService.ifSetCurrent">
+        <mat-card-title>
+          <h5 mat-subheader>Land usage information</h5>
+        </mat-card-title>
+        <mat-list>
+          <mat-list-item>
+            <mat-icon matListIcon class="mat-16">list_alt</mat-icon>
+            <span class="pro-title">Plot Id: </span>
+            <span class="pro-value">{{propertyService.currentNativeTitle.plot_id}}</span>
+          </mat-list-item>
+          <mat-list-item>
+            <mat-icon matListIcon class="mat-16">location_on</mat-icon>
+            <span class="pro-title">Address: </span>
+            <span class="pro-value">{{propertyService.currentNativeTitle.address}}</span>
+          </mat-list-item>
+          <mat-list-item>
+            <mat-icon matListIcon class="mat-18">person</mat-icon>
+            <span class="pro-title">Owner: </span>
+            <span class="pro-value">{{propertyService.currentNativeTitle.owner?propertyService.currentNativeTitle.owner:'N/A'}}</span>
+          </mat-list-item>
+          <mat-list-item>
+            <mat-icon matListIcon class="mat-18">flag</mat-icon>
+            <span class="pro-title">Agreement Type: </span>
+            <span class="pro-value">{{agreementType[propertyService.currentNativeTitle.agreement_type - 1]}}</span>
+          </mat-list-item>
+        </mat-list>
+
+        <mat-divider></mat-divider>
+
+        <mat-card-actions>
+          <button mat-button (click)="printToPDF()">PRINT</button>
+          <button (click)="likeCurrent()" *ngIf="!propertyService.ifLikedCurrentNativeTitle&&!ifInProgress" mat-button>
+            <span>LIKE</span>
+          </button>
+          <button (click)="unlikeCurrent()" *ngIf="propertyService.ifLikedCurrentNativeTitle&&!ifInProgress" mat-button>
+            <span>UNLIKE</span>
+          </button>
+          <button class="like-button" mat-button *ngIf="ifInProgress">
+            <mat-spinner [diameter]="30"></mat-spinner>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </mat-tab>
+</mat-tab-group>

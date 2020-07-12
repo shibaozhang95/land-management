@@ -1,0 +1,49 @@
+#side-bar-container {
+  width: auto;
+  height: 100%;
+  
+}
+
+#side-bar {
+  position: relative;
+  width: 400px;
+  height: 100%;
+  /* height: calc(100% - 40px); */
+  /* padding: 10px 10px; */
+  /* margin: 20px 10px; */
+  background-color: rgb(245, 245, 245);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.top-function {
+  width: 100%;
+  background: #eee
+}
+.go-to-admin {
+  width: calc(100% - 30px);
+  height: auto;
+  padding: 20px 15px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  text-decoration: none;
+}
+
+.go-to-admin button {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  background: #fff;
+  box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+}
+
+.go-to-admin button .left-icon {
+  margin-right: 8px;
+}
+.go-to-admin button .right {
+  align-self: flex-end;
+  justify-self: flex-end;
+  position: absolute;
+  right: 15px;;
+  top: 7px;
+}

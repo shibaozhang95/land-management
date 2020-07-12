@@ -1,0 +1,48 @@
+<div class="account-add-container">
+  <mat-card class="account-add-block">
+    <mat-card-title>Add new adiministrator account</mat-card-title>
+    <mat-card-content>
+      <form class="add-admin-form" [formGroup]="adminFormControl" (ngSubmit)="addAdmin()">
+        <mat-list>
+
+          <mat-list-item>
+            <mat-icon class="mat-22 add-admin-line-icon">face</mat-icon>
+            <mat-form-field class="add-admin-form-line">
+              <input matInput class="add-admin-line-input" type="text" name="adminUsername" placeholder="Username" 
+                formControlName="username" />
+              <mat-error *ngIf="username.invalid">Username is <strong>required</strong></mat-error>
+            </mat-form-field>
+          </mat-list-item>
+
+          <mat-list-item>
+            <mat-icon class="mat-22 add-admin-line-icon">lock_open</mat-icon>
+            <mat-form-field class="add-admin-form-line">
+              <input matInput type="password" placeholder="Password" name="adminPassword" 
+                formControlName="password" />
+              <mat-error *ngIf="password.invalid">Password is <strong>required</strong></mat-error>
+            </mat-form-field>
+          </mat-list-item>
+          
+          <mat-list-item>
+            <mat-icon class="mat-22 add-admin-line-icon">lock</mat-icon>
+            <mat-form-field class="add-admin-form-line">
+              <input matInput type="password" placeholder="Confirm password" name="adminConfirmPassword" 
+                formControlName="confirmPassword"/>
+              <mat-error *ngIf="confirmPassword.invalid">Password <strong>doesn't match</strong></mat-error>
+            </mat-form-field>
+          </mat-list-item>
+
+          <mat-list-item>
+            <div class="add-admin-form-line">
+              <!-- <button class="add-admin-btn" mat-raised-button color="accent" (click)="addUser()">Reset</button> -->
+              <button class="add-admin-btn" mat-raised-button color="primary" type="submit"
+                [disabled]="!adminFormControl.valid">Add</button>
+            </div>
+          </mat-list-item>
+        </mat-list>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+

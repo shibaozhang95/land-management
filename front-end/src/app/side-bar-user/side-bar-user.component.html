@@ -1,0 +1,26 @@
+<div id="side-bar-user-container">
+  <mat-icon color="white" class="mat-50">account_circle</mat-icon>
+  <div class="username">
+    <span *ngIf="!userService.currentUser">Visitor</span>
+    <span *ngIf="userService.currentUser">{{userService.currentUser.username}}</span>
+  </div>
+
+  <button color="white" class="menu-button" mat-icon-button [matMenuTriggerFor]="menuRef">
+    <mat-icon>more_vert</mat-icon>
+  </button>
+
+  <mat-menu #menuRef="matMenu">
+    <button mat-menu-item [disabled]="userService.currentUser" routerLink="/login">
+      <mat-icon>vpn_key</mat-icon>
+      <span>Log in</span>
+    </button>
+    <button (click)="logOut()" mat-menu-item [disabled]="!userService.currentUser">
+      <mat-icon>exit_to_app</mat-icon>
+      <span>Log out</span>
+    </button>
+    <button mat-menu-item routerLink="/sign-up">
+      <mat-icon>voicemail</mat-icon>
+      <span>Sign up</span>
+    </button>
+  </mat-menu>
+</div>

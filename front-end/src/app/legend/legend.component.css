@@ -1,0 +1,58 @@
+.legend-container {
+  position: absolute;
+  top: 150px;
+  right: 15px;
+}
+
+.legend-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.legend-content {
+  position: absolute;
+  top: 0;
+  right: 80px;
+  background: rgba(151, 151, 151, 0.8);
+  border-radius: 5px;
+  width: auto;
+  height: auto;
+}
+
+.legend-content mat-list-item {
+  width: 460px;
+}
+
+.legend-content .color-span {
+  height: 60%;
+  width: 60px;
+  margin: auto 15px auto 0;
+}
+
+.legend-content .content-span {
+  color: #fff;
+}
+
+.color-span-1 {
+  background: #6200EE;
+}
+.color-span-2 {
+  background: #03DAC6;
+}
+.color-span-3 {
+  background: #C51162;
+}
+
+.arrow-right {
+  position: absolute;
+  top: 15px;
+  right: -15px;
+  /* background: rgba(151, 151, 151, 0.8); */
+  width: 0; 
+  height: 0; 
+  border-top: 13px solid transparent;
+  border-bottom: 13px solid transparent;
+  
+  border-left: 15px solid rgba(151, 151, 151, 0.8);
+}

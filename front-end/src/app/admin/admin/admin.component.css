@@ -1,0 +1,16 @@
+#admin-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.admin-nav-bar {
+  width: 18%;
+  min-width: 220px;
+}
+
+.mat-list-icon {
+  color: rgba(0, 0, 0, 0.54);
+}

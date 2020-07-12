@@ -1,0 +1,44 @@
+.add-user-form {
+  width: 300px
+  
+}
+
+.account-add-container {
+  width: 100%;
+  height: 100%;
+}
+
+.account-add-block {
+  width: 80%;
+  max-width: 450px;
+  padding: 30px 50px;
+  margin: 50px auto; 
+}
+
+.add-admin-form-line {
+  width: 100%;
+  /* display: flex; */
+}
+.add-admin-btn {
+  float: right;
+  /* align-items: flex-end; */
+  /* justify-content: flex-end; */
+}
+
+mat-list-item {
+  margin: 20px 0;
+}
+mat-card-title {
+  /* background-color: red;
+  color: #fff; */
+  text-align: center;
+}
+.add-admin-from-line button {
+  float: right;
+}
+.add-admin-line-icon {
+  width: 35px;
+  height: 35px;
+  font-size: 30px !important;
+  margin: 0 15px;
+}

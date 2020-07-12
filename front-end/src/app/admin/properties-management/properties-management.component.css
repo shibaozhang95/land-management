@@ -1,0 +1,16 @@
+table {
+  width: 100%;
+}
+mat-card-title {
+  text-align: center;
+}
+.properties-list-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.properties-list-block {
+  width: 80%;
+  margin: 50px auto;
+}

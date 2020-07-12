@@ -1,0 +1,21 @@
+<div id="side-bar-container">
+  <div id="side-bar">
+    <div class="top-function">
+      <button mat-icon-button (click)="turnOff()">
+        <mat-icon class="mat-18">arrow_back</mat-icon>
+      </button>
+    </div>
+
+    <app-side-bar-user></app-side-bar-user>
+
+    <app-side-bar-function></app-side-bar-function>
+
+    <div *ngIf="userService.currentUser&&userService.currentUser.user_type==0" class="go-to-admin">
+      <button mat-button target="_blank" routerLink="/admin">
+        <mat-icon class="mat-14 left-icon">face</mat-icon>
+        <span class="left">Go to admin</span>
+        <mat-icon class="mat-14 right">arrow_forward_ios</mat-icon>
+      </button>
+    </div>
+  </div>
+</div>

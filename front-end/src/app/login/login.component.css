@@ -1,0 +1,33 @@
+.login-container {
+  width: 400px;
+  margin: 150px auto;
+}
+
+.login-form-line {
+  width: 100%;
+  /* display: flex; */
+}
+
+mat-list-item {
+  margin: 20px 0;
+  padding: 0 20px;
+}
+mat-card-title {
+  /* background-color: red;
+  color: #fff; */
+  text-align: center;
+}
+.login-form-line button {
+  float: right;
+  /* margin-right: 50px; */
+}
+.add-admin-line-icon {
+  width: 35px;
+  height: 35px;
+  font-size: 30px !important;
+  margin: 0 15px 0 0;
+}
+
+.login-other-action {
+  padding: 0 24px;
+}

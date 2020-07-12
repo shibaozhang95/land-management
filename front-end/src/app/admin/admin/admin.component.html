@@ -1,0 +1,28 @@
+<mat-sidenav-container id="admin-container">
+  <mat-sidenav class="admin-nav-bar" mode="side" opened>
+    <mat-nav-list>
+      <h2 mat-subheader>Properties Management</h2>
+      <a mat-list-item routerLink="propertiesList">
+        <mat-icon mat-list-icon>folder</mat-icon>
+        <h4 mat-line>Properties List</h4>
+      </a>
+      <a mat-list-item routerLink="addProperty">
+        <mat-icon mat-list-icon>add</mat-icon>
+        <h4 mat-line>Add properties</h4>
+      </a>
+      <mat-divider></mat-divider>
+      <h2 mat-subheader>Accounts Management</h2>
+      <a mat-list-item routerLink="accountsList">
+        <mat-icon mat-list-icon>folder</mat-icon>
+        <h4 mat-line>Accounts List</h4>
+      </a>
+      <a mat-list-item routerLink="addAccount">
+        <mat-icon mat-list-icon>add</mat-icon>
+        <h4 mat-line>Add account</h4>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content class="admin-content">
+    <router-outlet ></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

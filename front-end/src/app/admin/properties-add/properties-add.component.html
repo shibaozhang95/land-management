@@ -1,0 +1,81 @@
+<div class="property-add-container">
+  <mat-card class="property-add-block">
+    <mat-card-title>Add new property</mat-card-title>
+    <mat-card-content>
+      <form class="add-property-form" [formGroup]="propertyFormControl" (ngSubmit)="addProperty()">
+        <mat-list>
+          <mat-list-item>
+            <mat-icon class="mat-22 add-property-line-icon">list_alt</mat-icon>
+            <mat-form-field class="add-property-form-line">
+              <input matInput type="text" name="propertyId" placeholder="Plot ID" formControlName="propertyId" />
+              <!-- <mat-error *ngIf="propertyId.invalid">Plot ID is <strong>required</strong></mat-error> -->
+            </mat-form-field>
+          </mat-list-item>
+          <mat-list-item>
+            <mat-icon class="mat-22 add-property-line-icon">location_on</mat-icon>
+            <mat-form-field class="add-property-form-line">
+              <!-- <input matInput class="add-property-line-input" type="text" name="propertyAddress" placeholder="Plot Address" formControlName="propertyAddress"
+              /> -->
+              <input type="text" matInput [matAutocomplete]="auto" placeholder="Address" formControlName="propertyAddress" name="propertyAddress" 
+                (input)="onAddressChange($event.target.value)">
+              <mat-autocomplete #auto="matAutocomplete">
+                <mat-option *ngIf="propertyService.addressResults.length==0&&ifSearching==true">
+                  <mat-spinner [diameter]="30"></mat-spinner>
+                </mat-option>
+
+                <mat-option (click)="chooseAddress(option.description)" *ngFor="let option of propertyService.addressResults" [value]="option.description">
+                  <!-- {{option.plot_id}} -->
+                  {{option.description}}
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+          </mat-list-item>
+
+          <mat-list-item>
+            <mat-icon class="mat-22 add-property-line-icon">edit_location</mat-icon>
+            <mat-form-field class="add-property-form-line">
+              <input class="address-input" matInput type="text" placeholder="Coodinates Set" name="propertyCoordinates" formControlName="propertyCoordinates"
+              />
+              <!-- <button [disabled]="!propertyAddress" (click)="geocoding()" type="button" color="primary" class="address-btn" mat-icon-button
+                matTooltip="Get coordinates based on address">
+                <mat-icon aria-label="Example icon-button with a heart icon">favorite</mat-icon>
+              </button> -->
+              <mat-hint align="end">(lat1,lng2;lat2,lng2;lat3,lng3...)</mat-hint>
+              <!-- <mat-error *ngIf="propertyTimeLimitation.invalid">Time limite is <strong>required</strong></mat-error> -->
+            </mat-form-field>
+          </mat-list-item>
+
+          <mat-list-item>
+            <mat-icon class="mat-22 add-property-line-icon">flag</mat-icon>
+            <mat-form-field class="add-property-form-line">
+              <!-- <input matInput type="text" placeholder="Plot type" name="propertyType" 
+                    formControlName="propertyType"/> -->
+              <!-- <mat-error *ngIf="propertyType.invalid">Plot type is <strong>required</strong></mat-error> -->
+
+              <mat-select placeholder="Agreement type" [(value)]="selectedType" formControlName="propertyType">
+                <mat-option value="1">Areas where native title does not exist</mat-option>
+                <mat-option value="2">Areas to which sections 47A and 48A NTA apply</mat-option>
+                <mat-option value="3">Areas the subject of non-exclusive native title</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </mat-list-item>
+
+          <mat-list-item>
+            <mat-icon class="mat-22 add-property-line-icon">person</mat-icon>
+            <mat-form-field class="add-property-form-line" disabled>
+              <input matInput type="text" placeholder="Owner/Group" name="propertyOwner" formControlName="propertyOwner" />
+              <!-- <mat-error *ngIf="propertyOwner.invalid">Owner is <strong>required</strong></mat-error> -->
+            </mat-form-field>
+          </mat-list-item>
+
+          <mat-list-item>
+            <div class="add-property-form-line">
+              <!-- <button class="add-admin-btn" mat-raised-button color="accent" (click)="addUser()">Reset</button> -->
+              <button class="add-property-btn" mat-raised-button color="primary" type="submit" [disabled]="!propertyFormControl.valid">Add</button>
+            </div>
+          </mat-list-item>
+        </mat-list>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

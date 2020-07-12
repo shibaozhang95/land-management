@@ -1,0 +1,15 @@
+table {
+  width: 100%;
+}
+mat-card-title {
+  text-align: center;
+}
+.accounts-list-container {
+  width: 100%;
+  height: 100%;
+}
+
+.accounts-list-block {
+  width: 80%;
+  margin: 50px auto;
+}

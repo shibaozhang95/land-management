@@ -1,0 +1,53 @@
+<div id="search-box-container">
+  <div id="search-box">
+    <mat-form-field class="search-way-ipt" floatLabel="never">
+      <mat-select placeholder="Search by" [(value)]="searchWay"
+      (selectionChange)="changeSearchWay($event.value)">
+        <mat-option value="plot_id">
+          Plot ID
+        </mat-option>
+        <mat-option value="address">
+          Address
+        </mat-option>
+        <mat-option value="region">
+          Region
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="keyword-ipt">
+      <input [disabled]="!searchWay" type="text" matInput [matAutocomplete]="auto"
+        [(ngModel)]="keyword" (input)="onSearchChange($event.target.value)">
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option *ngIf="ifSearching==true">
+          <mat-spinner [diameter]="30"></mat-spinner>
+        </mat-option>
+        <div *ngIf="searchWay=='plot_id'">
+          <mat-option (click)="goToNativeTitle(option)" *ngFor="let option of propertyService.searchResults" [value]="option.plot_id">
+            {{option.plot_id}}
+          </mat-option>
+        </div>
+        <div *ngIf="searchWay=='address'">
+          <mat-option (click)="goToNativeTitle(option)" *ngFor="let option of propertyService.searchResults" [value]="option.address">
+            {{option.address}}
+          </mat-option>
+        </div>
+
+        <div *ngIf="searchWay=='region'">
+          <mat-option (click)="goToRegion(option)" *ngFor="let option of propertyService.regionResults" [value]="option.description">
+            <div class="main-text">
+              {{option.structured_formatting.main_text}}
+            </div>
+            <div class="second-text">
+              {{option.structured_formatting.secondary_text}}
+            </div>
+          </mat-option>
+        </div>
+        
+        <!-- <mat-option *ngIf="searchWay=='address'" *ngFor="let option of propertyService.searchResults" [value]="option">
+          {{option.address}}
+        </mat-option> -->
+      </mat-autocomplete>
+    </mat-form-field>
+  </div>
+</div>
